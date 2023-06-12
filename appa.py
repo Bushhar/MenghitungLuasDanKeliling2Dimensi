@@ -1,7 +1,6 @@
 import streamlit as st 
 import pandas as pd
 import numpy as np 
-import plotly.graph_objects as go
 
 option_list = ['Luas', 'Keliling']
 
@@ -42,11 +41,13 @@ if selected_option == 'Luas':
             st.write("Luas Lingkaran adalah =", luas)
             st.success(f"Luas Lingkaran adalah = {luas}")
 
-        fig = go.Figure(data=[go.Scatter(x=np.cos(np.linspace(0, 2*np.pi, 100)) * radius + 0.5,
-                                         y=np.sin(np.linspace(0, 2*np.pi, 100)) * radius + 0.5,
-                                         fill='none', mode='lines', line=dict(color='blue', width=2))])
-        fig.update_layout(xaxis_range=[0, 2 * radius + 1], yaxis_range=[0, 2 * radius + 1], aspectratio=dict(x=1, y=1))
-        st.plotly_chart(fig)
+        fig, ax = plt.subplots()
+        circle = plt.Circle((0.5, 0.5), radius, fill=False, edgecolor='blue', linewidth=2)
+        ax.add_patch(circle)
+        ax.set_xlim([0, 2 * radius + 1])
+        ax.set_ylim([0, 2 * radius + 1])
+        ax.set_aspect('equal', adjustable='box')
+        st.pyplot(fig)
     
     elif selected_shape == 'Segitiga' :
         st.subheader('Segitiga')
@@ -283,4 +284,5 @@ elif selected_option == 'Keliling':
         ax.set_xlim([-sisi_a - 5, sisi_a + 5])
         ax.set_ylim([-sisi_b - 5, sisi_b + 5])
         st.pyplot(fig)
+
 
