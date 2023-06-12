@@ -32,7 +32,7 @@ if selected_option == 'Luas':
         ax.set_ylim([0, max(panjang, lebar) + 5])
         st.pyplot(fig)
 
-        elif selected_shape == 'Lingkaran':
+    elif selected_shape == 'Lingkaran':
         st.subheader('Lingkaran')
         radius = st.slider("Masukkan Nilai Jari-jari", 0)
         hitung = st.button("Hitung Luas")
