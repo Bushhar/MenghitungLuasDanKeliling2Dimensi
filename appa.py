@@ -286,10 +286,3 @@ elif selected_option == 'Keliling':
         ax.set_ylim([-sisi_b - 5, sisi_b + 5])
         st.pyplot(fig)
 
-
-
-
-elif selected_option == 'Volume':
-    st.title('Hitung Volume Bangun')
-
-    # Tambahkan kode untuk menghitung volume bangun 2D
