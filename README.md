@@ -1,1 +1,0 @@
-# MenghitungLuasDanKeliling2Dimensi
